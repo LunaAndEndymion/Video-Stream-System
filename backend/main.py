@@ -12,6 +12,8 @@ FastAPI 应用入口。
 from fastapi import FastAPI
 
 from backend.api.device_management.hello_world import router as hello_world_router
+from backend.api.device_management.device_monitor import router as device_monitor_router
+from backend.api.video_stream.rtsp_manager import router as rtsp_manager_router
 
 
 def create_app() -> FastAPI:
@@ -23,6 +25,8 @@ def create_app() -> FastAPI:
 
     # 注册路由
     app.include_router(hello_world_router)
+    app.include_router(device_monitor_router)
+    app.include_router(rtsp_manager_router)
 
     return app
 
